@@ -1,14 +1,16 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { GridControlRoutingModule } from './grid-control-routing.module';
-
+import { NgModule } from '@angular/core';
+import { GridControlComponent } from './grid-control.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    GridControlComponent
+  ],
+  exports: [
+    GridControlComponent
+  ],
   imports: [
-    CommonModule,
-    GridControlRoutingModule
+    CommonModule
   ]
 })
 export class GridControlModule { }
