@@ -1,0 +1,30 @@
+.page-builder-container {
+  display: flex; // Use flexbox to arrange children horizontally
+  flex-direction: column; // Arrange children vertically
+
+  .heading {
+    width: 100%; // Take full width
+    height: 39px;
+    background-color: lightcyan;
+    border-bottom: 1px solid darkblue;
+  }
+
+  .building-container {
+    display: flex; // Use flexbox to arrange children horizontally
+    height: calc(100vh - 40px);
+
+    .drag-menu {
+      width: 250px; // Set a fixed width of 100px
+      height: 100%;
+
+      background-color: lightcyan;
+      border-right: 1px solid darkblue;
+      padding-right: -1px;
+    }
+
+    .drop-targets {
+      flex: 1; // Take the remaining space
+      height: 100%;
+    }
+  }
+}

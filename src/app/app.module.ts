@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
-import { GridControlModule } from './grid-control/grid-control.module';
+import { PageBuilderModule } from './page-builder/page-builder.module';
 
 @NgModule({
   declarations: [
@@ -11,7 +11,7 @@ import { GridControlModule } from './grid-control/grid-control.module';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    GridControlModule
+    PageBuilderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
