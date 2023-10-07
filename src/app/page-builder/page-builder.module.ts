@@ -5,13 +5,15 @@ import { ComponentMenuComponent } from './component-menu/component-menu.componen
 import { PageBuilderComponent } from './page-builder.component';
 import { PageColDefComponent } from './page-col-def/page-col-def.component';
 import { PageLayoutComponent } from './page-layout/page-layout.component';
+import { PageColDropzoneComponent } from './page-col-def/page-col-dropzone/page-col-dropzone.component';
 
 @NgModule({
   declarations: [
     PageBuilderComponent,
     ComponentMenuComponent,
     PageLayoutComponent,
-    PageColDefComponent
+    PageColDefComponent,
+    PageColDropzoneComponent
   ],
   exports: [
     PageBuilderComponent,

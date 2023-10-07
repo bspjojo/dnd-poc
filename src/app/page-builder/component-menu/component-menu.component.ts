@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DndDropEvent, EffectAllowed } from 'ngx-drag-drop';
+import { ComponentDefinitionService } from 'src/app/services/set-data/component-definition.service';
 
 @Component({
   selector: 'pdd-component-menu',
@@ -7,15 +8,18 @@ import { DndDropEvent, EffectAllowed } from 'ngx-drag-drop';
   styleUrls: ['./component-menu.component.scss']
 })
 export class ComponentMenuComponent {
+  public componentData = this.componentDefinitionService.getComponents();
 
-  draggable = {
-    // note that data is handled with JSON.stringify/JSON.parse
-    // only set simple data or POJO's as methods will be lost
-    data: { componentType: 't1', name: 'cName' },
+  public draggableMeta = Object.freeze({
     effectAllowed: 'all' as EffectAllowed,
     disable: false,
     handle: false
-  };
+  });
+
+  constructor(
+    private componentDefinitionService: ComponentDefinitionService
+  ) { }
+
 
   onDragStart(event: DragEvent) {
 

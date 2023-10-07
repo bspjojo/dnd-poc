@@ -1,15 +1,5 @@
-<!--a dropzone-->
-<!--to allow dropping content that is not [dndDraggable] set dndAllowExternal to true-->
-<div class="dropzone" dndDropzone (dndDragover)="onDragover($event)" (dndDrop)="onDrop($event)">
-
-  dropzone
-
-  <!--optional placeholder element for dropzone-->
-  <!--will be removed from DOM on init-->
-  <div style="border: 1px orangered solid; border-radius: 5px; padding: 15px;" dndPlaceholderRef>
-    placeholder
-  </div>
-
-</div>
-
-<pre>{{data|json}}</pre>
+<pdd-page-col-dropzone (onItemDropped)="onDrop($event, 0)"></pdd-page-col-dropzone>
+<ng-container *ngFor="let colCom of columnComponents; let index = index">
+  <pre>{{colCom|json}}</pre>
+  <pdd-page-col-dropzone (onItemDropped)="onDrop($event, index + 1)"></pdd-page-col-dropzone>
+</ng-container>

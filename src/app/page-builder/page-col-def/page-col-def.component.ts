@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { DndDropEvent } from 'ngx-drag-drop';
+import { ComponentDefinition } from 'src/app/services/set-data/component-definition.model';
 
 @Component({
   selector: 'pdd-page-col-def',
@@ -7,7 +8,7 @@ import { DndDropEvent } from 'ngx-drag-drop';
   styleUrls: ['./page-col-def.component.scss']
 })
 export class PageColDefComponent {
-  public data: any[] = [];
+  @Input() public columnComponents!: ComponentDefinition<any>[];
 
   onDragStart(event: DragEvent) {
 
@@ -44,10 +45,10 @@ export class PageColDefComponent {
     console.log("dragover", JSON.stringify(event, null, 2));
   }
 
-  onDrop(event: DndDropEvent) {
+  onDrop(event: DndDropEvent, idx: number) {
 
     console.log("dropped", JSON.stringify(event, null, 2));
 
-    this.data.push(event.data);
+    this.columnComponents.splice(idx, 0, event.data);
   }
 }

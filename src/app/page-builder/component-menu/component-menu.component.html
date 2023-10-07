@@ -1,16 +1,13 @@
-<!--a draggable element-->
-<div class="draggable" [dndDraggable]="draggable.data" [dndEffectAllowed]="draggable.effectAllowed"
-  [dndDisableIf]="draggable.disable" (dndStart)="onDragStart($event)" (dndCopied)="onDraggableCopied($event)"
-  (dndLinked)="onDraggableLinked($event)" (dndMoved)="onDraggableMoved($event)" (dndCanceled)="onDragCanceled($event)"
-  (dndEnd)="onDragEnd($event)">
+<ng-container *ngFor="let data of componentData">
+  <div class="draggable" [dndDraggable]="data" [dndEffectAllowed]="draggableMeta.effectAllowed"
+    [dndDisableIf]="draggableMeta.disable" (dndStart)="onDragStart($event)" (dndCopied)="onDraggableCopied($event)"
+    (dndLinked)="onDraggableLinked($event)" (dndMoved)="onDraggableMoved($event)" (dndCanceled)="onDragCanceled($event)"
+    (dndEnd)="onDragEnd($event)">
 
-  <!--if [dndHandle] is used inside dndDraggable drag can only start from the handle-->
-  <div *ngIf="draggable.handle" dndHandle>HANDLE
+    <!--TODO: image-->
+    <div dndDragImageRef id="{{data.id}}-drag-image-ref">
+      <div class="drag-title">{{ data.title }}</div>
+    </div>
+
   </div>
-
-  draggable ({{draggable.effectAllowed}}) <span [hidden]="!draggable.disable">DISABLED</span>
-
-  <!--optionally select a child element as drag image-->
-  <div dndDragImageRef>DRAG_IMAGE</div>
-
-</div>
+</ng-container>

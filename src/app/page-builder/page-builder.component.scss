@@ -11,11 +11,13 @@
 
   .building-container {
     display: flex; // Use flexbox to arrange children horizontally
-    height: calc(100vh - 40px);
+    min-height: calc(100vh - 40px);
+    max-height: calc(100vh - 40px);
 
     .drag-menu {
       width: 250px; // Set a fixed width of 100px
-      height: 100%;
+      max-height: 100%;
+      min-height: 100%;
 
       background-color: lightcyan;
       border-right: 1px solid darkblue;
@@ -23,6 +25,8 @@
     }
 
     .drop-targets {
+      max-height: 100%;
+      min-height: 100%;
       flex: 1; // Take the remaining space
       height: 100%;
     }
