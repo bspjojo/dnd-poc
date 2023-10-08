@@ -1,8 +1,17 @@
-<p>page-layout works!</p>
 <div class="page-layout-container">
-  <ng-container *ngFor="let col of pageLayout.columns">
+  <ng-container *ngFor="let col of pageLayout.columns; let index = index">
     <div class="col-def">
-      <pdd-page-col-def [columnComponents]="col.components"></pdd-page-col-def>
+      <div class="col-metaa">
+        <div class="btns">
+          <button (click)="removeCol(index)">-</button>
+        </div>
+      </div>
+      <div class="col-components">
+        <pdd-page-col-def [columnComponents]="col.components"></pdd-page-col-def>
+      </div>
     </div>
   </ng-container>
+  <div class="col-menu">
+    <button (click)="addCol(pageLayout.columns.length)">+</button>
+  </div>
 </div>

@@ -8,4 +8,12 @@ import { FlexPageLayout } from '../models/page.model';
 })
 export class PageLayoutComponent {
   @Input() public pageLayout!: FlexPageLayout;
+
+  public addCol(idx: number): void {
+    this.pageLayout.columns.splice(idx, 0, { width: '100px', components: [] });
+  }
+
+  public removeCol(idx: number): void {
+    this.pageLayout.columns.splice(idx, 1);
+  }
 }

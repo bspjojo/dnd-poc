@@ -19,7 +19,7 @@ export class PageColDropzoneComponent {
     console.log("dragover", JSON.stringify(event, null, 2));
   }
 
-  onDrop(event: DndDropEvent) {
+  public onDrop(event: DndDropEvent): void {
     this.onItemDropped.emit(event);
   }
 }

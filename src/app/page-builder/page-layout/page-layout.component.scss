@@ -3,5 +3,13 @@
 
   .col-def {
     flex: 1;
+
+    .col-meta {
+      width: 100%;
+    }
+
+    .col-components {
+      width: 100%
+    }
   }
 }
