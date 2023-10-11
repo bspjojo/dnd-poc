@@ -19,6 +19,11 @@ export class PageColDropzoneComponent {
     console.log("dragover", JSON.stringify(event, null, 2));
   }
 
+  public onDraggableMoved(event: Event): void {
+
+    console.log("draggable moved", JSON.stringify(event, null, 2));
+  }
+
   public onDrop(event: DndDropEvent): void {
     this.itemDropped.emit(event);
   }

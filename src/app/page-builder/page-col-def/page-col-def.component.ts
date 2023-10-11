@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { DndDropEvent } from 'ngx-drag-drop';
+import { DndDropEvent, DropEffect, EffectAllowed } from 'ngx-drag-drop';
 import { ComponentDefinition } from 'src/app/services/set-data/component-definition.model';
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'pdd-page-col-def',
@@ -10,45 +11,31 @@ import { ComponentDefinition } from 'src/app/services/set-data/component-definit
 export class PageColDefComponent {
   @Input() public columnComponents!: ComponentDefinition[];
 
-  onDragStart(event: DragEvent) {
+  public draggableMeta = Object.freeze({
+    effectAllowed: 'all' as EffectAllowed,
+    disable: false
+  });
 
-    console.log("drag started", JSON.stringify(event, null, 2));
+  onDragged(item: any, list: any[], effect: DropEffect) {
+    if (effect === 'move') {
+      const index = list.indexOf(item);
+      list.splice(index, 1);
+    }
   }
 
-  onDragEnd(event: DragEvent) {
+  onDrop(event: DndDropEvent, list?: any[]) {
+    if (event?.data?.id == null) {
+      event.data.id = uuidv4();
+    }
 
-    console.log("drag ended", JSON.stringify(event, null, 2));
-  }
+    if (list && (event.dropEffect === 'copy' || event.dropEffect === 'move')) {
+      let index = event.index;
 
-  onDraggableCopied(event: DragEvent) {
+      if (typeof index === 'undefined') {
+        index = list.length;
+      }
 
-    console.log("draggable copied", JSON.stringify(event, null, 2));
-  }
-
-  onDraggableLinked(event: DragEvent) {
-
-    console.log("draggable linked", JSON.stringify(event, null, 2));
-  }
-
-  onDraggableMoved(event: DragEvent) {
-
-    console.log("draggable moved", JSON.stringify(event, null, 2));
-  }
-
-  onDragCanceled(event: DragEvent) {
-
-    console.log("drag cancelled", JSON.stringify(event, null, 2));
-  }
-
-  onDragover(event: DragEvent) {
-
-    console.log("dragover", JSON.stringify(event, null, 2));
-  }
-
-  onDrop(event: DndDropEvent, idx: number) {
-
-    console.log("dropped", JSON.stringify(event, null, 2));
-
-    this.columnComponents.splice(idx, 0, event.data);
+      list.splice(index, 0, event.data);
+    }
   }
 }

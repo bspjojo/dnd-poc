@@ -9,19 +9,16 @@ export class ComponentDefinitionService {
     return [
       {
         iconClass: 'form',
-        id: 'form-id',
         title: 'Form',
         type: 'form'
       },
       {
         iconClass: 'image',
-        id: 'image-id',
         title: 'Image',
         type: 'image'
       },
       {
         iconClass: 'article',
-        id: 'article-id',
         title: 'Article',
         type: 'text'
       }

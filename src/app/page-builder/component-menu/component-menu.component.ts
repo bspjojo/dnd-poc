@@ -12,8 +12,7 @@ export class ComponentMenuComponent {
 
   public draggableMeta = Object.freeze({
     effectAllowed: 'all' as EffectAllowed,
-    disable: false,
-    handle: false
+    disable: false
   });
 
   constructor(

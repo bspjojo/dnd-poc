@@ -1,8 +1,9 @@
 <!--to allow dropping content that is not [dndDraggable] set dndAllowExternal to true-->
-<div class="dropzone" dndDropzone (dndDragover)="onDragover($event)" (dndDrop)="onDrop($event)">
+<div class="dropzone" dndDropzone (dndDragover)="onDragover($event)" (dndDrop)="onDrop($event)"
+  (dndMoved)="onDraggableMoved($event)">
   dropzone
   <!--will be removed from DOM on init-->
-  <div style="border: 1px orangered solid; border-radius: 5px; padding: 15px;" dndPlaceholderRef>
+  <div class="placeholder-ref" dndPlaceholderRef>
     Drop here
   </div>
 </div>

@@ -1,5 +1,20 @@
-<pdd-page-col-dropzone (itemDropped)="onDrop($event, 0)"></pdd-page-col-dropzone>
+<!-- <pdd-page-col-dropzone (itemDropped)="onDrop($event, 0)"></pdd-page-col-dropzone>
 <ng-container *ngFor="let colCom of columnComponents; let index = index">
-  <pre>{{colCom|json}}</pre>
+  <pre [dndDraggable]="colCom" [dndEffectAllowed]="draggableMeta.effectAllowed"
+    [dndDisableIf]="draggableMeta.disable">{{ colCom | json }}</pre>
   <pdd-page-col-dropzone (itemDropped)="onDrop($event, index + 1)"></pdd-page-col-dropzone>
-</ng-container>
+</ng-container> -->
+
+<pdd-page-col-dropzone (itemDropped)="onDrop($event, columnComponents)"></pdd-page-col-dropzone>
+<mat-list (dndDrop)="onDrop($event, columnComponents)"
+  class="dndList gap-1 d-flex flex-column bg-light rounded-1 shadow-sm" dndDropzone dndEffectAllowed="copyMove">
+  <mat-list-item class="dndPlaceholder border rounded-1 bg-opacity-25" dndPlaceholderRef>
+  </mat-list-item>
+
+  <mat-list-item *ngFor="let item of columnComponents" [dndDraggable]="item"
+    [dndEffectAllowed]="draggableMeta.effectAllowed" (dndCanceled)="onDragged(item, columnComponents, 'none')"
+    (dndCopied)="onDragged(item, columnComponents, 'copy')" (dndLinked)="onDragged(item, columnComponents, 'link')"
+    (dndMoved)="onDragged(item, columnComponents, 'move')" class="border rounded-1 bg-white">
+    <div matListItemTitle>{{ item | json }}</div>
+  </mat-list-item>
+</mat-list>
