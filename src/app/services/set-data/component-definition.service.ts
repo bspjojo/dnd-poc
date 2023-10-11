@@ -5,10 +5,7 @@ import { ComponentDefinition } from './component-definition.model';
   providedIn: 'root'
 })
 export class ComponentDefinitionService {
-
-  constructor() { }
-
-  public getComponents(): ComponentDefinition<any>[] {
+  public getComponents(): ComponentDefinition[] {
     return [
       {
         iconClass: 'form',

@@ -7,7 +7,7 @@ import { DndDropEvent } from 'ngx-drag-drop';
   styleUrls: ['./page-col-dropzone.component.scss']
 })
 export class PageColDropzoneComponent {
-  @Output() public onItemDropped = new EventEmitter<DndDropEvent>();
+  @Output() public itemDropped = new EventEmitter<DndDropEvent>();
 
   public onDragCanceled(event: DragEvent): void {
 
@@ -20,6 +20,6 @@ export class PageColDropzoneComponent {
   }
 
   public onDrop(event: DndDropEvent): void {
-    this.onItemDropped.emit(event);
+    this.itemDropped.emit(event);
   }
 }

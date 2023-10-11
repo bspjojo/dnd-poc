@@ -8,7 +8,7 @@ import { ComponentDefinition } from 'src/app/services/set-data/component-definit
   styleUrls: ['./page-col-def.component.scss']
 })
 export class PageColDefComponent {
-  @Input() public columnComponents!: ComponentDefinition<any>[];
+  @Input() public columnComponents!: ComponentDefinition[];
 
   onDragStart(event: DragEvent) {
 

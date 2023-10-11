@@ -1,4 +1,4 @@
-export interface ComponentDefinition<T = any> {
+export interface ComponentDefinition<T = unknown> {
   type: string;
   title: string;
   id: string;

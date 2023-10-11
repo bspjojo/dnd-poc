@@ -1,5 +1,5 @@
-<pdd-page-col-dropzone (onItemDropped)="onDrop($event, 0)"></pdd-page-col-dropzone>
+<pdd-page-col-dropzone (itemDropped)="onDrop($event, 0)"></pdd-page-col-dropzone>
 <ng-container *ngFor="let colCom of columnComponents; let index = index">
   <pre>{{colCom|json}}</pre>
-  <pdd-page-col-dropzone (onItemDropped)="onDrop($event, index + 1)"></pdd-page-col-dropzone>
+  <pdd-page-col-dropzone (itemDropped)="onDrop($event, index + 1)"></pdd-page-col-dropzone>
 </ng-container>

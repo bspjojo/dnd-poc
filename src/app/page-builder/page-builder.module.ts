@@ -4,8 +4,8 @@ import { DndModule } from 'ngx-drag-drop';
 import { ComponentMenuComponent } from './component-menu/component-menu.component';
 import { PageBuilderComponent } from './page-builder.component';
 import { PageColDefComponent } from './page-col-def/page-col-def.component';
-import { PageLayoutComponent } from './page-layout/page-layout.component';
 import { PageColDropzoneComponent } from './page-col-def/page-col-dropzone/page-col-dropzone.component';
+import { PageLayoutComponent } from './page-layout/page-layout.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +16,7 @@ import { PageColDropzoneComponent } from './page-col-def/page-col-dropzone/page-
     PageColDropzoneComponent
   ],
   exports: [
-    PageBuilderComponent,
+    PageBuilderComponent
   ],
   imports: [
     CommonModule,
